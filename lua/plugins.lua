@@ -17,7 +17,6 @@ require('packer').startup(function()
 	'nvim-telescope/telescope.nvim',
 	requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
@@ -26,4 +25,5 @@ require('packer').startup(function()
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'saadparwaiz1/cmp_luasnip'
   use 'theniceboy/vim-calc'
+  use 'sharkdp/fd'
 end)

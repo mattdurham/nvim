@@ -2,8 +2,7 @@ require('plugins')
 require('lsp_config')
 require('color')
 require('treesitter')
-require('telescope')
---require('complete')
+require('tele')
 vim.wo.colorcolumn = '240'
 vim.opt.autoindent = true
 vim.opt.cursorline = true
@@ -15,5 +14,6 @@ vim.opt.number = true
 vim.opt.shiftwidth = 4
 vim.cmd("syntax enable")
 vim.cmd("colorscheme tender")
+vim.cmd("let NERDTreeShowHidden=1")
 --vim.cmd("set completeopt=menu,menuone,noselect")
 
