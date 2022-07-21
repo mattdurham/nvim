@@ -2,10 +2,38 @@ vim.cmd [[autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_
 local nvim_lsp = require('lspconfig')
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+require('go').setup({
+  run_in_floaterm = true,
+  capabilities = capabilities,
+})
+require('navigator').setup()
+require("lsp_signature").setup()
 
+nvim_lsp.gopls.setup{
+	cmd = {'gopls'},
+	-- for postfix snippets and analyzers
+	capabilities = capabilities,
+	    settings = {
+	      gopls = {
+		      experimentalPostfixCompletions = true,
+		      analyses = {
+		        unusedparams = true,
+		        shadow = true,
+		     },
+		     staticcheck = true,
+		    },
+	    },    
+	on_attach = function(client, bufnr)
+    require('lsp_signature').on_attach()
+  end,
+  init_options = {
+    usePlaceholders = true,
+  }
+}
 
+--[=====[ 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -54,22 +82,6 @@ local on_attach = function(client, bufnr)
   end
 end
 
-nvim_lsp.gopls.setup{
-	cmd = {'gopls'},
-	-- for postfix snippets and analyzers
-	capabilities = capabilities,
-	    settings = {
-	      gopls = {
-		      experimentalPostfixCompletions = true,
-		      analyses = {
-		        unusedparams = true,
-		        shadow = true,
-		     },
-		     staticcheck = true,
-		    },
-	    },
-	on_attach = on_attach,
-}
 
   function goimports(timeoutms)
     local context = { source = { organizeImports = true } }
@@ -100,10 +112,9 @@ nvim_lsp.gopls.setup{
       vim.lsp.buf.execute_command(action)
     end
   end
+   --]=====]
 
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local lspconfig = require('lspconfig')
 
 -- luasnip setup
 local luasnip = require 'luasnip'
@@ -133,6 +144,7 @@ cmp.setup {
         fallback()
       end
     end, { 'i', 's' }),
+    
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -141,10 +153,12 @@ cmp.setup {
       else
         fallback()
       end
-    end, { 'i', 's' }),
+    end, { 'i', 's' }),  
   }),
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'nvim_lsp_signature_help'},
   },
 }
+

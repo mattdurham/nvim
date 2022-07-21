@@ -74,6 +74,11 @@ _G.packer_plugins = {
     path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  aurora = {
+    loaded = true,
+    path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/aurora",
+    url = "https://github.com/ray-x/aurora"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -99,11 +104,6 @@ _G.packer_plugins = {
     path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  fd = {
-    loaded = true,
-    path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/fd",
-    url = "https://github.com/sharkdp/fd"
-  },
   fzf = {
     loaded = true,
     path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/fzf",
@@ -113,6 +113,31 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
+  },
+  ["go.nvim"] = {
+    loaded = true,
+    path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/go.nvim",
+    url = "https://github.com/ray-x/go.nvim"
+  },
+  ["guihua.lua"] = {
+    loaded = true,
+    path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/guihua.lua",
+    url = "https://github.com/ray-x/guihua.lua"
+  },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["navigator.lua"] = {
+    loaded = true,
+    path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/navigator.lua",
+    url = "https://github.com/ray-x/navigator.lua"
   },
   nerdtree = {
     loaded = true,
@@ -139,6 +164,11 @@ _G.packer_plugins = {
     path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -159,6 +189,12 @@ _G.packer_plugins = {
     path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/tender.vim",
     url = "https://github.com/jacoborus/tender.vim"
   },
+  ["trouble.nvim"] = {
+    config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0" },
+    loaded = true,
+    path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
+  },
   ["vim-calc"] = {
     loaded = true,
     path = "/Users/mdurham/.local/share/nvim/site/pack/packer/start/vim-calc",
@@ -172,6 +208,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: trouble.nvim
+time([[Config for trouble.nvim]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
+time([[Config for trouble.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
