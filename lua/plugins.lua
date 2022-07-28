@@ -23,11 +23,11 @@ require('packer').startup(function()
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
-  --use 'hrsh7th/cmp-nvim-lsp-signature-help'
+  use 'hrsh7th/cmp-nvim-lsp-signature-help'
   use 'saadparwaiz1/cmp_luasnip'
   use 'theniceboy/vim-calc'
   use 'ray-x/aurora'
-  use 'ray-x/lsp_signature.nvim'
+  -- use 'ray-x/lsp_signature.nvim'
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
@@ -35,7 +35,7 @@ require('packer').startup(function()
       require("trouble").setup {
       -- your configuration comes here
       -- or leave it empty to use the default settings
-      -- refer to the configuration section below
+      -- rer to the configuration section below
     }
     end
   }
