@@ -7,6 +7,16 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
   use({
+    "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = { "python", "go", "javascript", "rust" },
+        highlight = { enable = true },
+      })
+    end,
+    run = ":TSUpdate",
+  })
+  use({
     'ray-x/navigator.lua',
     requires = {"ray-x/guihua.lua", run = "cd lua/fzy && make" },
         config = function()
@@ -20,21 +30,7 @@ require('packer').startup(function()
         end,
   })
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
-  use ({
-    'ray-x/go.nvim',
-    require('go').setup({
-      run_in_floaterm = true,
-      gopls_cmd = { 'gopls' },
-      icons = true,
-      verbose = false,
-      lsp_codelens = false,
-      lsp_keymaps = false,
-      lsp_diag_hdlr = false,
-      dap_debug_keymap = false,
-      textobjects = true,
-      luasnip = true,
-    })
-  })
+  use 'ray-x/go.nvim'
   use ({
     'hrsh7th/nvim-cmp',
     requires = {
@@ -97,17 +93,7 @@ require('packer').startup(function()
       })
     end,
   })
-  use({
-    "nvim-treesitter/nvim-treesitter",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = { "python", "go", "javascript", "rust" },
-        highlight = { enable = true },
-      })
-    end,
-    run = ":TSUpdate",
-  })
-  use({
+ use({
     'ray-x/lsp_signature.nvim',
     config = function()
       local signature_config = {
