@@ -149,6 +149,12 @@ require('packer').startup(function()
          "MunifTanjim/nui.nvim",
        },
      }
+   use {
+    "simrat39/symbols-outline.nvim",
+    config = function()
+      require("symbols-outline").setup { }
+    end
+   }  
    
 end)
 
